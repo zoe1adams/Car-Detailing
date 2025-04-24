@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Detailing</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/script.js"></script>
+</head>
+<body>
+
+  <!-- THEME + AUDIO TOGGLES -->
+  <button id="theme-toggle">Toggle Mode</button>
+  <button id="audio-toggle">🔊 Mute</button>
+
+  <!-- BACKGROUND AUDIO (muted by default) -->
+  <audio id="bg-audio" autoplay loop muted>
+    <source src="assets/audio/engine_idle.mp3" type="audio/mp3" />
+    Your browser does not support the audio tag.
+  </audio>
+
+  <!-- MOBILE NAV HAMBURGER -->
+  <div class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- MOBILE NAV MENU -->
+  <nav class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Car Detailing</h1>
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button onclick="window.location.href='pricing.html'">Get a Quote</button>
+  </header>
+
+  <!-- HERO VIDEO -->
+  <section id="hero">
+    <div class="video-container">
+      <video autoplay loop muted playsinline>
+        <source src="assets/images/spinning_car.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <a class="overlay-link" href="services.html">Let's connect</a>
+    </div>
+  </section>
+
+  <!-- FEATURE SECTION -->
+  <section class="feature-section fade-in">
+    <img src="assets/images/entry_detail.jpg" alt="Car Image" />
+    <div class="feature-text">
+      <h3>Precise Work</h3>
+      <p>We uphold the highest standards of professionalism when servicing your vehicles.</p>
+      <h3>Premium Products and Services</h3>
+      <p>Ensure your car's longevity with a periodic exterior protection treatment.</p>
+      <h3>High-Level Security and Privacy</h3>
+      <p>We understand the importance of privacy and security for our clientele.</p>
+    </div>
+  </section>
+
+  <!-- CTA OVERLAY -->
+  <section class="cta-overlay fade-in">
+    <img src="assets/images/maintenance_detail.jpg" alt="Detailing Background" />
+    <div class="cta-text">
+      <h2>Book your luxury<br>car detailing today</h2>
+      <a href="pricing.html">Get a quote now</a>
+    </div>
+  </section>
+
+  <!-- FOOTER NAV + SOCIAL -->
+  <section class="footer-links" id="contact">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <p>
+      <a href="https://instagram.com" target="_blank">Instagram</a> |
+      <a href="https://facebook.com" target="_blank">Facebook</a> |
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    Made by <a href="https://adamswebstudio.online" target="_blank">Adams Web Studio</a>
+  </footer>
+
+  <!-- JS (inline for now or move to script.js) -->
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const audio = document.getElementById("bg-audio");
+    const audioToggle = document.getElementById("audio-toggle");
+    const mobileNav = document.getElementById("mobileNav");
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+    });
+
+    audioToggle.addEventListener("click", () => {
+      audio.muted = !audio.muted;
+      audioToggle.textContent = audio.muted ? "🔇 Unmute" : "🔊 Mute";
+      if (!audio.muted) audio.play();
+    });
+
+    function toggleNav() {
+      mobileNav.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>

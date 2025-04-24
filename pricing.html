@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing - Car Detailing</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      font-size: 16px;
+    }
+
+    header button {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .pricing-section {
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .pricing-section h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .pricing-cards {
+      display: flex;
+      overflow-x: auto;
+      gap: 30px;
+      padding: 20px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .pricing-card {
+      background-color: #1a1a1a;
+      flex: 0 0 300px;
+      padding: 30px 25px;
+      border-radius: 15px;
+      text-align: left;
+      scroll-snap-align: center;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+    }
+
+    .pricing-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .pricing-card p {
+      font-size: 15px;
+      color: #ccc;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #00ffcc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #111;
+      font-size: 14px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .pricing-cards {
+        padding: 10px;
+        gap: 20px;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".pricing-card");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.animationDelay = "0s";
+          }
+        });
+      }, { threshold: 0.1 });
+
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Header/Nav -->
+  <header>
+    <h1>Car Detailing</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button onclick="window.location.href='contact.html'">Book Now</button>
+  </header>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section">
+    <h2>Our Pricing</h2>
+    <div class="pricing-cards">
+
+      <div class="pricing-card">
+        <h3>Entry Detail</h3>
+        <p>Exterior wash, interior vacuum, window clean, tire shine.</p>
+        <div class="price">$49</div>
+        <p>Great for quick cleanups or routine maintenance.</p>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Maintenance Detail</h3>
+        <p>Full interior wipe-down, hand wax, wheel cleaning, vacuuming.</p>
+        <div class="price">$89</div>
+        <p>Perfect for monthly deep care with polish.</p>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Full Detail</h3>
+        <p>Interior shampoo, leather care, clay bar, wax, engine wipe.</p>
+        <div class="price">$159</div>
+        <p>Top-to-bottom rejuvenation inside and out.</p>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Ceramic Coating</h3>
+        <p>Multi-layer ceramic, paint correction, 2-year protection.</p>
+        <div class="price">$399+</div>
+        <p>Protect your shine and paint for years.</p>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Engine Bay Detail</h3>
+        <p>Degrease and protect all visible engine components.</p>
+        <div class="price">$79</div>
+        <p>Optional add-on for any detail service.</p>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Mobile Detailing</h3>
+        <p>We come to you with all our detailing services.</p>
+        <div class="price">+$20</div>
+        <p>Travel fee based on location.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Back to <a href="index.html">Home</a> | Site by <a href="https://adamswebstudio.online" target="_blank">Adams Web Studio</a></p>
+  </footer>
+
+</body>
+</html>

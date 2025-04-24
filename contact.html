@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Car Detailing</title>
+
+  <!-- Font & Style -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+      background-color: black;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: white;
+      font-size: 16px;
+    }
+
+    header button {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .contact-section h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input, textarea {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: white;
+      font-size: 16px;
+      padding: 12px 16px;
+      border-radius: 6px;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: white;
+    }
+
+    button[type="submit"] {
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #ddd;
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #111;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <h1>Car Detailing</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button onclick="window.location.href='pricing.html'">Get a Quote</button>
+  </header>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section">
+    <h2>Contact Us</h2>
+    <form action="#" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number (Optional)" />
+      <textarea name="message" rows="5" placeholder="Your message here..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> support@cardetailing.com</p>
+      <p><strong>Phone:</strong> (555) 123-4567</p>
+      <p><strong>Location:</strong> Atlanta, GA · Mobile Services Available</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    Back to <a href="index.html">Home</a> | Site by <a href="https://adamswebstudio.online" target="_blank">Adams Web Studio</a>
+  </footer>
+
+</body>
+</html>

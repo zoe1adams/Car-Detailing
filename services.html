@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services - Car Detailing</title>
+
+  <!-- Fonts and Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+      animation: slideDown 1s ease forwards;
+    }
+
+    .services-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .service-card {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+      transform: scale(0.95);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .service-card.appear {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .service-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    }
+
+    .service-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: filter 0.5s ease;
+    }
+
+    .service-card:hover .service-image {
+      filter: brightness(1.1);
+    }
+
+    .service-content {
+      padding: 20px 25px 30px;
+    }
+
+    .service-content h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .service-content p {
+      color: #ccc;
+      font-size: 16px;
+      animation: fadeIn 1.3s ease forwards;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #111;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .service-content {
+        padding: 15px;
+      }
+      .service-content h2 {
+        font-size: 20px;
+      }
+      .service-content p {
+        font-size: 14px;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".service-card");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("appear");
+          }
+        });
+      }, { threshold: 0.2 });
+
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Our Services</h1>
+  </header>
+
+  <!-- Services Section -->
+  <section class="services-container">
+
+    <div class="service-card">
+      <img src="assets/images/entry.jpg" class="service-image" alt="Entry Level Detail" />
+      <div class="service-content">
+        <h2>Entry-Level Detail</h2>
+        <p>Perfect for a quick refresh: exterior wash, vacuum interior, wipe-down, and tire shine.</p>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/maintenance.jpg" class="service-image" alt="Maintenance Detail" />
+      <div class="service-content">
+        <h2>Maintenance Detail</h2>
+        <p>Includes steam clean, hand wax, wheel detailing, and window polish. Keeps your car looking brand new.</p>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/full.jpg" class="service-image" alt="Full Detail" />
+      <div class="service-content">
+        <h2>Full Detail</h2>
+        <p>Top-to-bottom deep clean: clay bar, paint correction, shampoo carpets, and leather conditioning.</p>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/engine.jpg" class="service-image" alt="Engine Bay Cleaning" />
+      <div class="service-content">
+        <h2>Engine Bay Cleaning</h2>
+        <p>Degrease and detail your engine bay safely and professionally. Great for shows or resale value.</p>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/ceramic.jpg" class="service-image" alt="Ceramic Coating" />
+      <div class="service-content">
+        <h2>Ceramic Coating</h2>
+        <p>Protect your paint with long-lasting ceramic coating. Shine and durability guaranteed.</p>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/mobile.jpg" class="service-image" alt="Mobile Detailing" />
+      <div class="service-content">
+        <h2>Mobile Detailing</h2>
+        <p>We come to you! All detailing services available at your home or office.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Back to <a href="index.html">Home</a> | Site by <a href="https://adamswebstudio.online" target="_blank">Adams Web Studio</a></p>
+  </footer>
+
+</body>
+</html>
